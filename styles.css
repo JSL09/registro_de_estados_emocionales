@@ -1,0 +1,171 @@
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --ink: #1d2b3a;
+  --muted: #5b6b7b;
+  --accent: #5a7fb8;
+  --danger: #b65555;
+  --ok: #4f8d68;
+  --warn: #b88a2d;
+  --alert: #d16b2f;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #e8eff8;
+  border-bottom: 1px solid #d4dfec;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.4rem;
+}
+
+.subtitle,
+.hint {
+  margin: 0;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.form-grid {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+label,
+fieldset {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.96rem;
+}
+
+fieldset {
+  border: 1px solid #d8e1ec;
+  border-radius: 10px;
+  padding: 0.65rem;
+}
+
+.switch-row {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+input[type='range'] {
+  width: 100%;
+}
+
+input,
+select,
+button {
+  font-size: 1rem;
+}
+
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.68rem 0.9rem;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background: var(--danger);
+}
+
+.result-state {
+  font-weight: 700;
+  margin: 0.2rem 0 0.45rem;
+}
+
+.badge {
+  margin-top: 0.5rem;
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: #d8eadf;
+  color: #225f3f;
+  font-weight: 600;
+}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.plan-grid article {
+  border: 1px solid #dde7f1;
+  border-radius: 10px;
+  padding: 0.7rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.48rem;
+  border-bottom: 1px solid #edf2f8;
+  text-align: left;
+}
+
+dialog {
+  border: none;
+  border-radius: 12px;
+  max-width: 460px;
+}
+
+.hidden-fast {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .plan-grid {
+    grid-template-columns: 1fr;
+  }
+}
