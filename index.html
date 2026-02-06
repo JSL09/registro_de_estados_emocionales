@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brújula SZA · Monitoreo de estabilidad</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>Brújula SZA</h1>
+        <p class="subtitle">Monitoreo de ánimo, síntomas psicóticos y prevención de recaídas.</p>
+      </div>
+      <button id="crisisBtn" class="btn btn-danger" type="button">Necesito ayuda ahora</button>
+    </header>
+
+    <main class="layout">
+      <section class="card">
+        <h2>Check-in diario (2 minutos)</h2>
+        <p class="hint">Si hoy te cuesta concentrarte, activa el modo rápido.</p>
+        <label class="switch-row" for="modoRapido">
+          <input id="modoRapido" type="checkbox" />
+          <span>Modo rápido</span>
+        </label>
+
+        <form id="checkinForm" class="form-grid">
+          <label>
+            Ánimo (1 = muy bajo, 7 = muy alto)
+            <input name="animo" type="range" min="1" max="7" value="4" required />
+          </label>
+
+          <label>
+            Energía / activación (1–7)
+            <input name="energia" type="range" min="1" max="7" value="4" required />
+          </label>
+
+          <label data-fast="hide">
+            Claridad mental (1–7)
+            <input name="claridad" type="range" min="1" max="7" value="4" required />
+          </label>
+
+          <fieldset data-fast="hide">
+            <legend>Síntomas psicóticos hoy</legend>
+            <label><input name="referencia" type="checkbox" /> Ideas de referencia/persecución</label>
+            <label><input name="voces" type="checkbox" /> Voces o percepciones inusuales</label>
+            <label><input name="desorganizacion" type="checkbox" /> Desorganización del pensamiento/habla</label>
+          </fieldset>
+
+          <label data-fast="hide">
+            Horas de sueño (0–12)
+            <input name="suenoHoras" type="number" min="0" max="12" step="0.5" value="7" required />
+          </label>
+
+          <label data-fast="hide">
+            Calidad del sueño (1–5)
+            <input name="suenoCalidad" type="range" min="1" max="5" value="3" />
+          </label>
+
+          <label data-fast="hide">
+            Adherencia farmacológica
+            <select name="adherencia">
+              <option value="2">Tomado</option>
+              <option value="1">Parcial</option>
+              <option value="0">No tomado</option>
+            </select>
+          </label>
+
+          <label data-fast="hide">
+            Estrés agudo (0–3)
+            <input name="estres" type="range" min="0" max="3" value="1" />
+          </label>
+
+          <label data-fast="hide">
+            Consumo de sustancias hoy
+            <select name="consumo">
+              <option value="0">No</option>
+              <option value="1">Sí</option>
+            </select>
+          </label>
+
+          <button class="btn" type="submit">Guardar check-in</button>
+        </form>
+      </section>
+
+      <section class="card" id="resultadoCard">
+        <h2>Lectura clínica orientativa del día</h2>
+        <p id="resultadoEstado" class="result-state">Aún no hay datos guardados hoy.</p>
+        <p id="resultadoExplicacion" class="hint">Esta herramienta orienta decisiones tempranas, pero no reemplaza atención médica.</p>
+        <div id="semaforo" class="badge">Semáforo: Verde</div>
+      </section>
+
+      <section class="card">
+        <h2>Plan personal de prevención</h2>
+        <div class="plan-grid">
+          <article>
+            <h3>Verde</h3>
+            <p>Mantener rutinas, sueño y medicación.</p>
+          </article>
+          <article>
+            <h3>Amarillo</h3>
+            <p>Reducir estímulos, anticipar descanso y avisar a tu apoyo principal.</p>
+          </article>
+          <article>
+            <h3>Naranja</h3>
+            <p>Contactar equipo tratante y activar plan de contención.</p>
+          </article>
+          <article>
+            <h3>Rojo</h3>
+            <p>Buscar ayuda inmediata en red de apoyo y urgencias.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Línea de tiempo (últimos 14 registros)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Ánimo</th>
+                <th>Energía</th>
+                <th>Sueño</th>
+                <th>Índice riesgo</th>
+                <th>Perfil</th>
+              </tr>
+            </thead>
+            <tbody id="timelineBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="crisisDialog">
+      <h2>Modo crisis</h2>
+      <ol>
+        <li>Respira 4 segundos, suelta en 6. Repite 6 veces.</li>
+        <li>Ubícate: hoy es <span id="fechaActual"></span>. Estás a salvo en este momento.</li>
+        <li>Contacta a tu persona de apoyo o terapeuta.</li>
+        <li>Si hay riesgo agudo, acude a urgencias de inmediato.</li>
+      </ol>
+      <button id="cerrarCrisis" class="btn" type="button">Cerrar</button>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

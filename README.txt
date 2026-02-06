@@ -1,7 +1,22 @@
-DescripciÛn del Programa
-Este programa es una herramienta de evaluaciÛn de estado emocional que utiliza un algoritmo para registrar y analizar sÌntomas. Basado en la entrada del usuario, el programa determina si est· en un estado de hipomanÌa, manÌa, depresiÛn o normalidad. Desarrollado en Python con React, el objetivo principal es servir como una herramienta ˙til para la salud mental, proporcionando a los usuarios una manera de autoevaluarse y entender mejor su estado emocional.
-CaracterÌsticas:
-    ï Registro de sÌntomas personalizados.
-    ï EvaluaciÛn automatizada del estado emocional.
-    ï Basado en un algoritmo lÛgico de clasificaciÛn.
+Descripci√≥n del proyecto
+Br√∫jula SZA es una aplicaci√≥n web local orientada al monitoreo diario de personas con trastorno esquizoafectivo, con enfoque cl√≠nico, humano y no estigmatizante.
 
+Incluye:
+- Check-in diario de 2 minutos (con modo r√°pido para d√≠as de mayor carga mental).
+- Clasificaci√≥n orientativa del d√≠a: estable, depresivo, activaci√≥n alta o se√±ales psic√≥ticas.
+- C√°lculo de √≠ndice de riesgo de reca√≠da (IRI) con explicaci√≥n clara de se√±ales detectadas.
+- Sem√°foro de prevenci√≥n (verde, amarillo, naranja, rojo).
+- L√≠nea de tiempo de los √∫ltimos 14 registros.
+- Modo crisis con acciones concretas de contenci√≥n y b√∫squeda de ayuda.
+
+Ejecuci√≥n local
+1. Desde este directorio, iniciar un servidor est√°tico:
+   python3 -m http.server 8000
+2. Abrir en navegador:
+   http://localhost:8000
+
+Archivos principales
+- index.html: estructura de la interfaz.
+- styles.css: dise√±o visual calmado y accesible.
+- app.js: l√≥gica de check-in, clasificaci√≥n, sem√°foro e historial.
+- DISENO_APP_ESQUIZOAFECTIVO.md: dise√±o cl√≠nico-funcional de referencia.
