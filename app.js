@@ -103,11 +103,19 @@ function renderLatest(data) {
   semaforo.style.color = latest.fg;
 }
 
-modoRapido.addEventListener('change', () => {
+function setFastMode(enabled) {
   const hiddenZones = document.querySelectorAll('[data-fast="hide"]');
-  hiddenZones.forEach((el) => {
-    el.classList.toggle('hidden-fast', modoRapido.checked);
+  hiddenZones.forEach((zone) => {
+    zone.classList.toggle('hidden-fast', enabled);
+    const zoneInputs = zone.querySelectorAll('input, select, textarea, button');
+    zoneInputs.forEach((input) => {
+      input.disabled = enabled;
+    });
   });
+}
+
+modoRapido.addEventListener('change', () => {
+  setFastMode(modoRapido.checked);
 });
 
 form.addEventListener('submit', (ev) => {
@@ -151,3 +159,4 @@ cerrarCrisis.addEventListener('click', () => {
 const initial = loadData();
 renderLatest(initial);
 renderTimeline(initial);
+setFastMode(modoRapido.checked);
